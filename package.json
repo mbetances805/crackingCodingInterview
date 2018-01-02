@@ -1,0 +1,14 @@
+{
+  "name": "crackingcodeinterview",
+  "version": "1.0.0",
+  "description": "JavaScript solutions to Cracking the Coding Interview Chapter Problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Maria Betances",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
