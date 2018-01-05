@@ -19,7 +19,7 @@ const zeroMatrix = (a) => {
     a[row][foundColumn] = 0;
     if (row === foundRow) {
       for (let i = 0; i < a[0].length; i++) {
-        a[foundRow][i] = 0
+        a[foundRow][i] = 0;
       }
     }
   }
