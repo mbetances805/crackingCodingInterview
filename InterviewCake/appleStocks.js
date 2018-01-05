@@ -1,5 +1,4 @@
-function myFunction(arg) {
-// write the body of your function here
+function appleStocks(arg) {
   let min = arg[0]
   let max = arg[arg.length - 1]
   let maxProfit = 0
@@ -23,9 +22,7 @@ function myFunction(arg) {
   return 'Max Profit $' + maxProfit
 }
 
-  // run your function through some test cases here
-  // remember: debugging is half the battle!
-console.log(myFunction([10, 1]))
+console.log(appleStocks([10, 1]))
 
 // function getProductsOfAllIntsExceptAtIndex(arg) {
 //     // write the body of your function here
