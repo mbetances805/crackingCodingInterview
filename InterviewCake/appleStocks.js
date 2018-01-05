@@ -1,4 +1,4 @@
-function appleStocks(arg) {
+function appleStocks (arg) {
   let min = arg[0]
   let max = arg[arg.length - 1]
   let maxProfit = 0
