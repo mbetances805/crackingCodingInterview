@@ -1,6 +1,6 @@
 // Given two strings, write a method to decide if one is a permutation of the other?
 // Big O: O(n)
-const checkPermute = (str1, str2) => {
+const checkPermutation = (str1, str2) => {
   if (str1.length !== str2.length) {
     return false;
   } else {
@@ -14,4 +14,4 @@ const checkPermute = (str1, str2) => {
   }
 }
 
-checkPermute('isa', 'ais');
+checkPermutation('isa', 'ais');
