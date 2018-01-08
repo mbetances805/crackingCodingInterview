@@ -61,6 +61,7 @@ const oneAway2 = (str1, str2) => {
   let hashTable = {};
   let longestWord = '';
   let shortestWord = '';
+  let total = 0;
 
   if (str1.length > str2.length || str1.length === str2.length) {
     longestWord = str1;
@@ -86,7 +87,7 @@ const oneAway2 = (str1, str2) => {
 
   for (let j = 0; j < shortestWord.length; j++) {
     if (hashTable[shortestWord[j]]) {
-      let counter = hashTable[shortestWord[j]]
+      let counter = hashTable[shortestWord[j]];
       counter--;
       hashTable[shortestWord[j]] = counter;
       if (counter < 0) {
@@ -94,7 +95,7 @@ const oneAway2 = (str1, str2) => {
       }
     }
   }
-  let total = 0;
+
   for (let letter in hashTable) {
     total += hashTable[letter];
     if (total > 1) {
