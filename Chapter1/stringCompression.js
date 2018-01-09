@@ -27,7 +27,7 @@ stringCompression1('abzzzzzzcd');
 
 // Second Solution
 const stringCompression2 = (str) => {
-  let newStr = '';
+  let newStr = [];
   let counter = 1;
 
   for (let i = 0; i < str.length; i++) {
@@ -36,7 +36,7 @@ const stringCompression2 = (str) => {
     }
 
     if (str[i] !== str[i + 1]) {
-      newStr += str[i] + counter;
+      newStr.push(str[i] + counter);
       counter = 1;
     }
   }
@@ -45,7 +45,7 @@ const stringCompression2 = (str) => {
     return str;
   }
 
-  return newStr;
+  return newStr.join('');
 }
 
 stringCompression2('aabcccccaaa');
