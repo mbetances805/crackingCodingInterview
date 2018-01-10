@@ -52,8 +52,8 @@ LinkedList.prototype.remove = function (value) {
   }
   return new Error('Value is not in Linked List');
 }
-
-LinkedList.prototype.removeDups = function () {
+// First Solution
+LinkedList.prototype.removeDups1 = function () {
   let hashTable ={};
   let current = this.head;
   let temp = null;
@@ -72,11 +72,32 @@ LinkedList.prototype.removeDups = function () {
   }
   return this;
 }
+// Second Solution without buffer
+LinkedList.prototype.removeDups2 = function (value) {
+  let point1 = this.head;
+  let temp =  null;
+
+  while (point1) {
+    let point2 = point1;
+    while (point2.next){
+      point2 = point2.next;
+      if (point2.next !== null && point1.value === point2.next.value) {
+        temp = point2.next;
+        point2.next = temp.next;
+        this.length--;
+      }
+    }
+    point1 = point1.next;
+  }
+}
 
 let list = new LinkedList();
 list.insert(2);
 list.insert(7);
 list.insert(8);
+list.insert(9);
 list.insert(7);
-console.log(list.next)
-list.removeDups();
+console.log('1', list)
+list.removeDups1();
+list.removeDups2();
+console.log('2', list)
