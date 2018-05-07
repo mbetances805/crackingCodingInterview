@@ -39,6 +39,7 @@ const pathFinderDyn = (grid, row, column, path, failed) => {
     path.push([row, column])
     return 1
   }
+  failed.add(grid[row][column])
   return 0
 }
 const getPathDyn = (grid) => {
