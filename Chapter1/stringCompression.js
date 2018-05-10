@@ -3,6 +3,8 @@
 // your method should return the original string.
 // You can assume the string has only uppercase and lowercase letters.
 
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 // First Solution
 const stringCompression1 = (str) => {
   let compressedStr = '';
@@ -41,7 +43,7 @@ const stringCompression2 = (str) => {
     }
   }
 
-  if (newStr.length > str.length) {
+  if (newStr.join('').length > str.length) {
     return str;
   }
 
@@ -49,3 +51,24 @@ const stringCompression2 = (str) => {
 }
 
 stringCompression2('aabcccccaaa');
+
+// Third Solution
+const stringCompression3 = (str) => {
+  let counter = 1;
+  let stringCount = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      counter++;
+    } else {
+      stringCount.push(str[i] + counter);
+     counter = 1;
+    }
+  }
+  let newString = stringCount.join('');
+  if (newString.length > str.length) {
+    return str;
+  }
+  return newString;
+};
+
+console.log(stringCompression3('aabcccccaaa'));

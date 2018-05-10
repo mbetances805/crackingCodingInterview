@@ -2,50 +2,33 @@
 // A palindrome is a word or phrase that is the same forwards and backwards.
 // A permutation is a rearrangement of letters.
 // The palindrome does not need to be limited to just dictionary words.
-// Big O: O(n)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 // First Solution
-const palindromePermutation = (str) => {
-  let newStr = str.split('').reverse().join('');
-  if (str === newStr) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-palindromePermutation('cat tac');
-
-// Second Solution
-const palindromePermutation2 = (str) => {
-  let strLength = str.length;
-  let hashTable = {};
-
-  for (let i = 0; i < strLength; i++) {
-    if (!hashTable[str[i]]) {
-      hashTable[str[i]] = 1;
-    } else {
-      let counter = hashTable[str[i]];
-      counter++;
-      hashTable[str[i]] = counter;
-    }
-  }
-
-  if (!(strLength % 2)) {
-    for (let letter in hashTable) {
-      if (hashTable[letter] % 2) {
-        return false;
+const checkPalindrome = (str) => {
+  let countOfWords = {};
+  let singleLetterCount = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') {
+      let letter = str[i].toLowerCase()
+      if (countOfWords[letter]) {
+        let counter = countOfWords[letter]++;
+        counter++;
+        countOfWords[letter] = counter;
+      } else {
+        countOfWords[letter] = 1;
       }
     }
   }
-
-  for (let j = 0; j < strLength / 2; j++) {
-    if (j === 0 && str[j] !== str[strLength - 1]) {
-      return false;
-    } else if (j > 0 && str[j] !== str[strLength - 1 - j]) {
+  for (let letter in countOfWords) {
+    if (countOfWords[letter] % 2) {
+      singleLetterCount++;
+    }
+    if (singleLetterCount > 1) {
       return false;
     }
   }
   return true;
-}
+};
 
-palindromePermutation2('catymtac');
+console.log(checkPalindrome('attco cta'));
