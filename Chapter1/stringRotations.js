@@ -2,7 +2,16 @@
 // s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (e.g.
 // 'waterbottle' is a rotation of 'erbottlewat')
 
-const stringRotation = (s1, s2) => {
+const isRotation = (sOne, STwo) => {
+  if (sOne.length === sTwo.length && sOne.length > 0) {
+    let sOnesOne = sOne + sOne;
+    return isSubstring(sOnesOne, sTwo);
+  }
+  return false;
+};
+
+// check if word is a rotation of another word.
+const stringRotation2 = (s1, s2) => {
   let hashTable = {};
   let rotation = 0;
   let s1Length = s1.length;
@@ -37,6 +46,6 @@ const stringRotation = (s1, s2) => {
   }
 
   return true;
-}
+};
 
-stringRotation('waterbottle', 'erbottlewat')
+console.log(stringRotation('waterbottle', 'erbottlewat'))
