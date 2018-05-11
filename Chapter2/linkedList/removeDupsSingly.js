@@ -1,4 +1,5 @@
 // Write code to remove duplicates fron an unsorted linked list.
+// Singly Linked List
 function Node (value) {
   this.value = value;
   this.next = null;
@@ -53,6 +54,8 @@ LinkedList.prototype.remove = function (value) {
   return new Error('Value is not in Linked List');
 }
 // First Solution
+// Time Complexisty: O(n)
+// Space Complexity: O(n)
 LinkedList.prototype.removeDups1 = function () {
   let hashTable ={};
   let current = this.head;
@@ -73,6 +76,8 @@ LinkedList.prototype.removeDups1 = function () {
   return this;
 }
 // Second Solution without buffer
+// Time Complexity = O(n^2) 
+// Space Complexity: O(1)
 LinkedList.prototype.removeDups2 = function (value) {
   let point1 = this.head;
   let temp =  null;
